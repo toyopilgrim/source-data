@@ -22,7 +22,7 @@ def format_bank(current_bank)
   }
 end
 
-def insert_document(financial_institutions_docs,my_financialinstitution)
+def insert_documents(financial_institutions_docs,my_financialinstitution)
   Mongo::Logger.logger.level = Logger::WARN
   client_host = ['HOST_NAME']
   client_options = {
@@ -67,10 +67,10 @@ def parse_data(path)
   end
 
   puts(financial_institutions_docs.to_json)
-  insert_document(financial_institutions_docs,:FinancialInstitution)
+  insert_documents(financial_institutions_docs,:FinancialInstitution)
 
   puts(branches_docs.to_json)
-  insert_document(branches_docs,:Branches)
+  insert_documents(branches_docs,:Branch)
   
 end
 
